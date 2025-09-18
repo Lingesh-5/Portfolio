@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en" class="antialiased">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lingesh AJ — Fullstack Java Software Developer</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind Play CDN (good for prototype) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind config for dark mode class strategy -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: '#0EA5A4'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <meta name="description" content="Lingesh AJ — Junior Software Engineer | Java, Spring Boot, REST API, Docker, Microservices" />
+</head>
+<body class="bg-white text-gray-800 font-inter transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
+
+  <!-- Sticky Navbar -->
+  <header class="fixed w-full z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <nav class="flex items-center justify-between h-16">
+        <a href="#home" class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-700">
+            <img src="assets/profile.jpg" alt="Lingesh AJ" class="h-full w-full object-cover">
+          </div>
+          <div>
+            <div class="text-sm font-semibold">Lingesh AJ</div>
+            <div class="text-xs text-gray-500 dark:text-gray-400">Junior Software Engineer</div>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://drive.google.com/file/d/1mrhBPfHAUQuCEBW9T1FtH_r5nm_pSNvk/view?usp=sharing" download class="hidden sm:inline-block px-4 py-2 text-sm border rounded-md hover:bg-gray-50 dark:hover:bg-gray-800">Resume</a>
+
+          <!-- Dark/Light toggle -->
+          <button id="theme-toggle" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle theme">
+            <svg id="icon-light" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 3v2m0 14v2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M3 12h2m14 0h2M5.6 18.4l1.4-1.4M17 7l1.4-1.4"></path></svg>
+            <svg id="icon-dark" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+          </button>
+
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 dark:bg-gray-900/95 border-t">
+      <div class="px-4 py-2 flex flex-col gap-1">
+        <a href="#home" class="py-2">Home</a>
+        <a href="#about" class="py-2">About</a>
+        <a href="#skills" class="py-2">Skills</a>
+        <a href="#projects" class="py-2">Projects</a>
+        <a href="#experience" class="py-2">Experience</a>
+        <a href="#contact" class="py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="pt-20">
+
+    <!-- HOME / Landing -->
+    <section id="home" class="min-h-[70vh] flex items-center">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div class="space-y-6">
+            <h1 class="text-4xl sm:text-5xl font-extrabold">Hi, I'm <span class="text-brand">Lingesh AJ</span></h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300">Junior Software Engineer — building scalable Java & full-stack solutions.</p>
+
+            <!-- Typing animation -->
+            <div class="flex items-center gap-3">
+              <span class="text-sm text-gray-500 dark:text-gray-400">Skills:</span>
+              <span id="typed" class="text-lg font-medium text-gray-800 dark:text-gray-100"></span>
+              <span class="w-1 h-6 bg-gray-800 dark:bg-gray-100 animate-blink ml-1"></span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <a href="https://drive.google.com/file/d/1mrhBPfHAUQuCEBW9T1FtH_r5nm_pSNvk/view?usp=sharing" download class="px-5 py-3 rounded-md bg-brand text-white shadow hover:opacity-95">View Resume</a>
+              <a href="#projects" class="px-4 py-3 rounded-md border hover:bg-gray-50 dark:hover:bg-gray-800">View Projects</a>
+            </div>
+
+            <div class="mt-6 flex gap-3">
+              <!-- Small social icons -->
+              <a href="https://www.linkedin.com/in/lingesh-aj-36767321a" class="social-icon" aria-label="LinkedIn">
+                <!-- Inline SVG -->
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="30px"  height="30px"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-linkedin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1" /></svg>
+              </a>
+              <a href="https://github.com/Lingesh-5" class="social-icon" aria-label="GitHub">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="30px"  height="30px"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5.315 2.1c.791 -.113 1.9 .145 3.333 .966l.272 .161l.16 .1l.397 -.083a13.3 13.3 0 0 1 4.59 -.08l.456 .08l.396 .083l.161 -.1c1.385 -.84 2.487 -1.17 3.322 -1.148l.164 .008l.147 .017l.076 .014l.05 .011l.144 .047a1 1 0 0 1 .53 .514a5.2 5.2 0 0 1 .397 2.91l-.047 .267l-.046 .196l.123 .163c.574 .795 .93 1.728 1.03 2.707l.023 .295l.007 .272c0 3.855 -1.659 5.883 -4.644 6.68l-.245 .061l-.132 .029l.014 .161l.008 .157l.004 .365l-.002 .213l-.003 3.834a1 1 0 0 1 -.883 .993l-.117 .007h-6a1 1 0 0 1 -.993 -.883l-.007 -.117v-.734c-1.818 .26 -3.03 -.424 -4.11 -1.878l-.535 -.766c-.28 -.396 -.455 -.579 -.589 -.644l-.048 -.019a1 1 0 0 1 .564 -1.918c.642 .188 1.074 .568 1.57 1.239l.538 .769c.76 1.079 1.36 1.459 2.609 1.191l.001 -.678l-.018 -.168a5.03 5.03 0 0 1 -.021 -.824l.017 -.185l.019 -.12l-.108 -.024c-2.976 -.71 -4.703 -2.573 -4.875 -6.139l-.01 -.31l-.004 -.292a5.6 5.6 0 0 1 .908 -3.051l.152 -.222l.122 -.163l-.045 -.196a5.2 5.2 0 0 1 .145 -2.642l.1 -.282l.106 -.253a1 1 0 0 1 .529 -.514l.144 -.047l.154 -.03z" /></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Profile card -->
+          <div class="flex justify-center">
+            <div class="max-w-sm w-full bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 shadow-lg transform transition-transform hover:-translate-y-1">
+              <div class="flex items-center gap-4">
+                <div class="w-20 h-20 rounded-full overflow-hidden border-2">
+                  <img src="assets/profile.jpg" alt="Profile" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h3 class="font-semibold">Lingesh AJ</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-300">Junior Software Engineer</p>
+                  <div class="mt-3 text-sm">
+                    <span class="inline-block px-2 py-1 rounded bg-white/60 dark:bg-white/5 text-xs">Java</span>
+                    <span class="inline-block px-2 py-1 rounded bg-white/60 dark:bg-white/5 text-xs">Spring Boot</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 text-sm text-gray-600 dark:text-gray-300">
+                <p>Building resilient backend services and full-stack features with a focus on performance and maintainability.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid md:grid-cols-3 gap-8 items-center">
+          <div class="md:col-span-2 space-y-4">
+            <h2 class="text-3xl font-bold">About Me</h2>
+            <p class="text-gray-600 dark:text-gray-300">
+              I am a passionate Full-Stack Java developer with experience in building enterprise-grade applications using Java and modern frontend technologies.
+              I focus on problem solving, building scalable real-time business solutions, and collaborating effectively in teams.
+            </p>
+
+            <ul class="grid sm:grid-cols-2 gap-2 mt-4">
+              <li class="p-3 border rounded-lg bg-white/50 dark:bg-white/5">
+                <strong>Domain:</strong> E-commerce, Hotel management, Real estate, Finance, Web development
+              </li>
+              <li class="p-3 border rounded-lg bg-white/50 dark:bg-white/5">
+                <strong>Strengths:</strong> Problem solving, scalable design, Team collaboration
+              </li>
+              <li class="p-3 border rounded-lg bg-white/50 dark:bg-white/5">
+                <strong>Problem Solving:</strong> Solved 100+ coding problems in Codekata platform(GUVI). Solved 50+ tasks on Web development in Webkata platform
+              </li>
+              <li class="p-3 border rounded-lg bg-white/50 dark:bg-white/5">
+                <strong>Tech:</strong> Java, Spring Boot, Rest API, JPA,  MySQL, Db Solo, PostgreSQL, JavaScript, HTML, Bootstrap, Tailwind, Docker, Render, Netlify, Angular, GitHub
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex justify-center md:justify-end">
+            <div class="w-60 border rounded-xl overflow-hidden shadow">
+              <img src="assets/profile.jpg" alt="Lingesh profile" class="w-full h-72 object-cover">
+              <div class="p-4 bg-white dark:bg-gray-800">
+                <div class="text-sm text-gray-600 dark:text-gray-300">Key Highlights</div>
+                <ul class="mt-2 text-sm space-y-1">
+                  <li>• Problem solving</li>
+                  <li>• Real-time business solutions</li>
+                  <li>• Scalable applications</li>
+                  <li>• Teamwork & leadership</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800/40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="text-3xl font-bold mb-6">Skills</h2>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card per category -->
+          <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow">
+            <h3 class="font-semibold mb-3">Language</h3>
+            <div class="space-y-3">
+              <div>
+                <div class="text-sm"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 48 48" class="inline">
+                <path fill="#F44336" d="M23.65,24.898c-0.998-1.609-1.722-2.943-2.725-5.455C19.229,15.2,31.24,11.366,26.37,3.999c2.111,5.089-7.577,8.235-8.477,12.473C17.07,20.37,23.645,24.898,23.65,24.898z"></path><path fill="#F44336" d="M23.878,17.27c-0.192,2.516,2.229,3.857,2.299,5.695c0.056,1.496-1.447,2.743-1.447,2.743s2.728-0.536,3.579-2.818c0.945-2.534-1.834-4.269-1.548-6.298c0.267-1.938,6.031-5.543,6.031-5.543S24.311,11.611,23.878,17.27z"></path><g><path fill="#1565C0" d="M32.084 25.055c1.754-.394 3.233.723 3.233 2.01 0 2.901-4.021 5.643-4.021 5.643s6.225-.742 6.225-5.505C37.521 24.053 34.464 23.266 32.084 25.055zM29.129 27.395c0 0 1.941-1.383 2.458-1.902-4.763 1.011-15.638 1.147-15.638.269 0-.809 3.507-1.638 3.507-1.638s-7.773-.112-7.773 2.181C11.683 28.695 21.858 28.866 29.129 27.395z"></path><path fill="#1565C0" d="M27.935,29.571c-4.509,1.499-12.814,1.02-10.354-0.993c-1.198,0-2.974,0.963-2.974,1.889c0,1.857,8.982,3.291,15.63,0.572L27.935,29.571z"></path><path fill="#1565C0" d="M18.686,32.739c-1.636,0-2.695,1.054-2.695,1.822c0,2.391,9.76,2.632,13.627,0.205l-2.458-1.632C24.271,34.404,17.014,34.579,18.686,32.739z"></path><path fill="#1565C0" d="M36.281,36.632c0-0.936-1.055-1.377-1.433-1.588c2.228,5.373-22.317,4.956-22.317,1.784c0-0.721,1.807-1.427,3.477-1.093l-1.42-0.839C11.26,34.374,9,35.837,9,37.017C9,42.52,36.281,42.255,36.281,36.632z"></path><path fill="#1565C0" d="M39,38.604c-4.146,4.095-14.659,5.587-25.231,3.057C24.341,46.164,38.95,43.628,39,38.604z"></path></g>
+                </svg> Java <span class="text-xs text-gray-500">90%</span></div>
+                <div class="w-full bg-gray-200 h-3 rounded-full mt-2 overflow-hidden">
+                  <div class="h-full rounded-full" style="width:90%; background:linear-gradient(90deg,#0ea5a4,#06b6d4)"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow">
+            <h3 class="font-semibold mb-3">Frontend</h3>
+            <div class="space-y-3">
+              <div>
+                <div class="text-sm"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 50 50" class="inline" fill="currentColor">
+                <path d="M 45.273438 2.324219 C 45.085938 2.117188 44.816406 2 44.535156 2 L 5.464844 2 C 5.183594 2 4.914063 2.117188 4.726563 2.324219 C 4.535156 2.53125 4.441406 2.808594 4.46875 3.089844 L 7.988281 42.515625 C 8.023438 42.929688 8.3125 43.273438 8.710938 43.390625 L 24.722656 47.960938 C 24.808594 47.988281 24.902344 48 24.996094 48 C 25.089844 48 25.179688 47.988281 25.269531 47.960938 L 41.292969 43.390625 C 41.691406 43.273438 41.976563 42.929688 42.015625 42.515625 L 45.53125 3.089844 C 45.558594 2.808594 45.464844 2.53125 45.273438 2.324219 Z M 36.847656 15.917969 L 18.035156 15.917969 L 18.484375 21.007813 L 36.394531 21.007813 L 35.050781 36.050781 L 24.992188 39.089844 L 24.894531 39.058594 L 14.953125 36.046875 L 14.410156 29.917969 L 19.28125 29.917969 L 19.492188 32.296875 L 25.050781 33.460938 L 30.507813 32.296875 L 31.089844 25.859375 L 14.046875 25.859375 L 12.722656 11.054688 L 37.28125 11.054688 Z"></path>
+                </svg> HTML / CSS <span class="text-xs text-gray-500">85%</span></div>
+                <div class="w-full bg-gray-200 h-3 rounded-full mt-2 overflow-hidden">
+                  <div class="h-full rounded-full" style="width:85%; background:linear-gradient(90deg,#0ea5a4,#06b6d4)"></div>
+                </div>
+              </div>
+              <div>
+                <div class="text-sm"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 50 50" class="inline" fill="currentColor">
+                    <path d="M45.274,2.325C45.084,2.118,44.817,2,44.536,2H5.464C5.183,2,4.916,2.118,4.726,2.325S4.443,2.81,4.468,3.089l3.52,39.427 c0.037,0.412,0.324,0.759,0.722,0.873l16.01,4.573C24.809,47.987,24.902,48,24.994,48s0.185-0.013,0.274-0.038l16.024-4.573 c0.398-0.114,0.685-0.461,0.722-0.873l3.518-39.427C45.557,2.81,45.463,2.532,45.274,2.325z M12,29.004l7,1.942V11h4v26l-11-3.051 V29.004z M38.054,22L37,34.25L27,37v-4.601l6.75-1.855l0.25-3.75L27,28V11h12l-0.345,4H31v8L38.054,22z"></path>
+                </svg> JavaScript <span class="text-xs text-gray-500">75%</span></div>
+                <div class="w-full bg-gray-200 h-3 rounded-full mt-2 overflow-hidden">
+                  <div class="h-full rounded-full" style="width:75%; background:linear-gradient(90deg,#0ea5a4,#06b6d4)"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow">
+            <h3 class="font-semibold mb-3">Backend</h3>
+            <div class="space-y-3">
+              <div>
+                <div class="text-sm"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 48 48" class="inline">
+                <path fill="#8bc34a" d="M43.982,23.635c0.069-4.261-0.891-9.328-2.891-15.273l-1.568-4.662l-2.13,4.433 c-0.114,0.237-0.244,0.469-0.38,0.698C33.514,5.827,28.974,4,24,4C12.954,4,4,12.954,4,24c0,11.046,8.954,20,20,20s20-8.954,20-20 C44,23.877,43.984,23.758,43.982,23.635z"></path><path fill="#fff" d="M39.385 32.558c-3.123 4.302-8.651 4.533-13.854 4.442H18.75h-1.938c4.428-1.593 7.063-1.972 9.754-3.4 5.068-2.665 10.078-8.496 11.121-14.562-1.93 5.836-7.779 10.85-13.109 12.889-3.652 1.393-10.248 2.745-10.248 2.745l-.267-.145C9.573 32.268 9.437 22.214 17.6 18.968c3.574-1.423 6.993-.641 10.854-1.593 4.122-1.012 8.89-4.208 10.83-8.375C41.456 15.667 44.07 26.106 39.385 32.558L39.385 32.558zM15.668 38.445C15.386 38.795 14.955 39 14.505 39c-.823 0-1.495-.677-1.495-1.5s.677-1.5 1.495-1.5c.341 0 .677.118.941.336C16.086 36.855 16.186 37.805 15.668 38.445L15.668 38.445z"></path>
+                </svg> Spring Boot / REST APIs <span class="text-xs text-gray-500">88%</span></div>
+                <div class="w-full bg-gray-200 h-3 rounded-full mt-2 overflow-hidden">
+                  <div class="h-full rounded-full" style="width:88%; background:linear-gradient(90deg,#0ea5a4,#06b6d4)"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow">
+            <h3 class="font-semibold mb-3">Databases</h3>
+            <div class="space-y-3">
+              <div><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 48 48" class="inline">
+              <path fill="#00796b" d="M0.002,35.041h1.92v-7.085l2.667,6.057c0.329,0.755,0.779,1.022,1.662,1.022 s1.315-0.267,1.644-1.022l2.667-5.902v6.93h1.92v-7.258c0-0.697-0.277-1.035-0.849-1.209c-1.367-0.43-2.285-0.059-2.7,0.872 l-2.735,6.16l-2.649-6.16c-0.398-0.93-1.332-1.302-2.7-0.872C0.277,26.748,0,27.085,0,27.782v7.258H0.002z"></path><path fill="#00796b" d="M13.441,29.281h1.92v4.055c-0.015,0.2,0.064,0.731,0.99,0.745c0.472,0.008,2.821,0,2.85,0v-4.8h1.92 c0.008,0,0,5.968,0,5.993c0.01,1.472-1.828,1.662-2.673,1.687h-5.006v-0.96c0.01,0,4.787,0.001,4.801,0 c1.088-0.115,0.959-0.714,0.959-0.896v-0.064H16.19c-1.67-0.015-2.735-0.751-2.747-1.59C13.441,33.373,13.479,29.317,13.441,29.281 z"></path><path fill="#f57f17" d="M22.081,35.041h4.807c0.63,0,1.242-0.132,1.728-0.36c0.81-0.372,1.144-0.875,1.144-1.536v-1.368 c0-1.476-1.83-1.536-2.88-1.536h-1.92c-0.755,0-0.87-0.456-0.96-0.96v-0.96c0.09-0.384,0.258-0.9,0.923-0.96 c0.773,0,4.836,0,4.836,0v-0.96h-4.566c-0.755,0-3.114,0.09-3.114,1.92v1.187c0,0.84,0.738,1.524,2.34,1.692 c0.18,0.012,0.36,0.024,0.539,0.024c0,0,1.866-0.036,1.92-0.024c1.08,0,0.96,0.84,0.96,0.96v0.96c0,0.132-0.03,0.96-0.971,0.96 c-0.072,0-4.789,0-4.789,0V35.041z"></path><path fill="#f57f17" d="M40.32,33.08c0,1.159,0.655,1.809,2.392,1.939c0.162,0.011,0.325,0.021,0.488,0.021H48v-0.96h-4.435 c-0.991,0-1.325-0.416-1.325-1.011v-6.669h-1.92V33.08z"></path><path fill="#f57f17" d="M30.704,33.121v-4.8c0-1.02,0.5-1.724,1.916-1.92h0.672h3.447h0.525 c1.416,0.196,2.08,0.899,2.08,1.92v4.782c0,0.827-0.215,1.271-0.916,1.559L39.916,36h-2.16l-1.07-0.96h-1.257l-2.136,0.012 c-0.309,0-0.635-0.043-0.993-0.141C31.226,34.618,30.704,34.054,30.704,33.121z M32.624,33.121c0.098,0.467,0.473,0.96,1.14,0.96 h1.864l-1.068-0.96h2.175l0.519,0.482c0,0,0.186-0.152,0.186-0.482c0-0.33-0.016-4.8-0.016-4.8c-0.098-0.434-0.538-0.96-1.188-0.96 h-2.471c-0.749,0-1.14,0.548-1.14,1.058L32.624,33.121L32.624,33.121z"></path><path fill="#00796b" d="M46.199,25.389c-1.031-0.028-1.818,0.068-2.491,0.351c-0.191,0.081-0.496,0.083-0.528,0.323 c0.105,0.11,0.121,0.275,0.205,0.41c0.16,0.26,0.432,0.609,0.674,0.791c0.265,0.2,0.538,0.414,0.821,0.587 c0.504,0.307,1.067,0.483,1.553,0.791c0.286,0.181,0.57,0.411,0.85,0.615c0.138,0.102,0.23,0.259,0.41,0.323 c0-0.01,0-0.019,0-0.029c-0.094-0.12-0.119-0.285-0.205-0.411c-0.127-0.127-0.254-0.254-0.381-0.381 c-0.372-0.494-0.846-0.929-1.348-1.289c-0.401-0.288-1.298-0.677-1.466-1.143c-0.01-0.01-0.019-0.019-0.03-0.03 c0.284-0.032,0.617-0.135,0.879-0.205c0.441-0.118,0.834-0.087,1.289-0.205c0.205-0.059,0.41-0.117,0.615-0.176 c0-0.039,0-0.078,0-0.117c-0.23-0.236-0.395-0.548-0.645-0.762c-0.657-0.559-1.373-1.117-2.11-1.583 c-0.409-0.258-0.915-0.426-1.348-0.645c-0.146-0.074-0.402-0.112-0.498-0.234c-0.228-0.29-0.351-0.659-0.527-0.996 c-0.368-0.708-0.73-1.482-1.055-2.227c-0.223-0.508-0.368-1.01-0.645-1.466c-1.331-2.188-2.764-3.509-4.982-4.807 c-0.472-0.276-1.041-0.385-1.642-0.528c-0.323-0.019-0.645-0.039-0.968-0.059c-0.197-0.083-0.401-0.323-0.587-0.44 c-0.735-0.465-2.621-1.475-3.165-0.147c-0.344,0.838,0.514,1.656,0.821,2.081c0.215,0.298,0.491,0.632,0.645,0.968 c0.101,0.22,0.119,0.441,0.205,0.674c0.213,0.574,0.55,1.228,0.826,1.759c0.139,0.269,0.293,0.551,0.469,0.791 c0.108,0.147,0.293,0.212,0.323,0.44c-0.181,0.253-0.191,0.646-0.293,0.968c-0.458,1.445-0.285,3.24,0.381,4.308 c0.204,0.328,0.686,1.032,1.348,0.762c0.579-0.236,0.45-0.967,0.615-1.612c0.037-0.146,0.014-0.253,0.088-0.351 c0,0.01,0,0.019,0,0.03c0.176,0.351,0.351,0.704,0.528,1.055c0.391,0.629,1.084,1.286,1.67,1.73 c0.304,0.23,0.544,0.628,0.938,0.762c0-0.01,0-0.019,0-0.03c-0.01,0-0.019,0-0.03,0c-0.076-0.119-0.196-0.168-0.293-0.264 c-0.229-0.225-0.485-0.504-0.674-0.762c-0.534-0.725-1.006-1.519-1.436-2.345c-0.205-0.395-0.384-0.829-0.557-1.231 c-0.067-0.155-0.066-0.389-0.205-0.469c-0.19,0.294-0.468,0.532-0.615,0.879c-0.234,0.555-0.265,1.233-0.351,1.934 c-0.052,0.018-0.029,0.006-0.059,0.029c-0.408-0.099-0.552-0.518-0.704-0.879c-0.384-0.912-0.455-2.38-0.117-3.429 c0.087-0.272,0.482-1.127,0.323-1.378c-0.076-0.251-0.328-0.396-0.468-0.587c-0.175-0.236-0.348-0.548-0.469-0.821 c-0.314-0.711-0.612-1.538-0.943-2.257c-0.158-0.344-0.425-0.691-0.645-0.996c-0.243-0.338-0.516-0.587-0.704-0.996 c-0.067-0.145-0.158-0.378-0.059-0.528c0.032-0.101,0.076-0.143,0.176-0.176c0.17-0.132,0.643,0.043,0.821,0.117 c0.47,0.195,0.862,0.381,1.26,0.645c0.191,0.127,0.384,0.372,0.615,0.44c0.088,0,0.176,0,0.264,0 c0.413,0.095,0.875,0.03,1.26,0.147c0.682,0.207,1.292,0.529,1.846,0.879c1.69,1.067,3.071,2.585,4.016,4.397 c0.152,0.292,0.218,0.57,0.351,0.879c0.27,0.624,0.611,1.266,0.879,1.876c0.268,0.609,0.53,1.223,0.909,1.73 c0.2,0.266,0.97,0.409,1.319,0.557c0.245,0.104,0.647,0.211,0.879,0.351c0.444,0.268,0.874,0.587,1.289,0.879 C45.528,24.803,46.167,25.124,46.199,25.389z"></path><path fill="#00796b" d="M33.098,14.223c-0.215-0.004-0.367,0.023-0.528,0.059c0,0.01,0,0.019,0,0.03c0.01,0,0.019,0,0.03,0 c0.103,0.21,0.283,0.347,0.41,0.528c0.098,0.205,0.195,0.41,0.293,0.615c0.01-0.01,0.019-0.019,0.029-0.029 c0.181-0.128,0.265-0.332,0.264-0.645c-0.073-0.077-0.084-0.173-0.147-0.264C33.365,14.394,33.203,14.325,33.098,14.223z"></path>
+              </svg> MySQL / <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 48 48" class="inline">
+              <path fill="#fff" d="M44.083,29.79c-0.183-0.829-0.935-1.796-2.452-1.796c-0.31,0-0.649,0.039-1.035,0.119c-0.708,0.146-1.311,0.217-1.842,0.241c4.133-7.04,6.816-16.819,4.159-20.214c-3.501-4.473-8.214-5.141-10.711-5.141L31.967,3c-0.929,0.015-1.893,0.129-2.863,0.339l-3.583,0.774C25.033,4.052,24.536,4.009,24.018,4l-0.03,0l-0.016,0l-0.152-0.001c-1.593,0-3.046,0.338-4.341,0.973l-1.251-0.493c-1.72-0.678-4.308-1.485-6.868-1.485c-0.144,0-0.287,0.003-0.431,0.008C8.407,3.093,6.241,4.05,4.664,5.769C2.696,7.915,1.8,11.054,2.003,15.1C2.013,15.309,4.461,36,11.4,36h0.025l0.064-0.001c0.901-0.022,1.76-0.384,2.563-1.077c0.613,0.46,1.406,0.732,2.145,0.84c0.488,0.115,1.366,0.278,2.418,0.278c1.284,0,2.442-0.263,3.44-0.738c-0.001,0.88-0.006,1.994-0.016,3.418l-0.001,0.075l0.005,0.075c0.097,1.419,0.342,2.698,0.711,3.701c1.051,2.859,2.866,4.434,5.111,4.434c0.093,0,0.188-0.003,0.284-0.009c1.846-0.114,3.717-1.151,5.004-2.772c1.393-1.755,1.715-3.607,1.839-5.026L35,39.111v-0.088v-4.079l0.103,0.01l0.436,0.038l0.042,0.004l0.042,0.002c0.124,0.006,0.252,0.008,0.381,0.008c1.507,0,3.362-0.391,4.616-0.974C41.819,33.476,44.559,31.948,44.083,29.79z"></path><path fill="#0277bd" d="M33,34c0-0.205,0.012-0.376,0.018-0.565C33.008,33.184,33,33,33,33s0.012-0.009,0.032-0.022c0.149-2.673,0.886-3.703,1.675-4.29c-0.11-0.153-0.237-0.318-0.356-0.475c-0.333-0.437-0.748-0.979-1.192-1.674l-0.082-0.158c-0.067-0.164-0.229-0.447-0.435-0.819c-1.183-2.14-3.645-6.592-1.96-9.404c0.738-1.232,2.122-1.942,4.121-2.117C33.986,11.718,30.925,6.115,23.985,6c-0.002,0-0.004,0-0.006,0c-6.041-0.098-8.026,5.392-8.672,8.672c0.89-0.377,1.906-0.606,2.836-0.606c0.014,0,0.029,0,0.043,0c2.29,0.017,3.865,1.239,4.323,3.354c0.335,1.552,0.496,2.91,0.492,4.153c-0.01,2.719-0.558,4.149-1.042,5.411l-0.154,0.408c-0.124,0.334-0.255,0.645-0.379,0.937c-0.126,0.298-0.237,0.563-0.318,0.802c0.484,0.11,0.864,0.265,1.125,0.38l0.151,0.066c0.047,0.02,0.094,0.043,0.137,0.069c0.848,0.516,1.376,1.309,1.489,2.233c0.061,0.498,0.051,3.893,0.03,6.855c0.087,1.285,0.305,2.364,0.593,3.146c0.409,1.114,1.431,3.241,3.394,3.119c1.37-0.085,2.687-0.919,3.561-2.019c0.938-1.181,1.284-2.487,1.414-3.958V34z"></path><path fill="#0277bd" d="M15.114 28.917c-1.613-1.683-2.399-3.947-2.104-6.056.285-2.035.124-4.027.037-5.098-.029-.357-.048-.623-.047-.77 0-.008.002-.015.003-.023 0-.004-.002-.007-.002-.011.121-3.021 1.286-7.787 4.493-10.62C15.932 5.724 13.388 4.913 11 5 7.258 5.136 3.636 7.724 4 15c.137 2.73 3.222 19.103 7.44 19 .603-.015 1.229-.402 1.872-1.176 1.017-1.223 2.005-2.332 2.708-3.104C15.705 29.481 15.401 29.217 15.114 28.917zM37.023 14.731c.015.154.002.286-.022.408.031.92-.068 1.813-.169 2.677-.074.636-.15 1.293-.171 1.952-.021.645.07 1.282.166 1.956.225 1.578.459 3.359-.765 5.437.225.296.423.571.581.837 4.61-7.475 6.468-16.361 4.695-18.626C38.655 5.944 34.941 4.952 31.999 5c-.921.015-1.758.139-2.473.294C34.602 7.754 36.863 13.026 37.023 14.731zM41 30.071c-2.665.55-3.947.257-4.569-.126-.1.072-.2.133-.293.19-.372.225-.961.583-1.105 2.782.083.016.156.025.246.044L35.714 33c1.32.06 3.049-.31 4.063-.781C41.962 31.205 43.153 29.627 41 30.071zM22.023 32.119c-.037-.298-.198-.539-.492-.732l-.108-.047C21.062 31.181 20.653 31 20 31h-.004c-.127.01-.253.019-.38.019-.052 0-.103-.007-.155-.009-.474.365-1.148.647-2.816.99-2.98.759-1.221 1.655-.078 1.794 1.106.277 3.735.614 5.481-.809C22.043 32.537 22.035 32.229 22.023 32.119z"></path><path fill="#0277bd" d="M20.681 18.501c-.292.302-.753.566-1.262.484-.828-.134-1.463-1.133-1.417-1.508h0c.044-.374.751-.569 1.578-.435.287.047.548.128.768.228-.32-.688-.899-1.085-1.782-1.182-1.565-.174-3.226.644-3.56 1.097.007.11.02.251.033.417.093 1.147.265 3.284-.05 5.537-.208 1.485.393 3.169 1.567 4.395.757.79 1.641 1.29 2.513 1.438.111-.478.309-.944.513-1.425.113-.265.233-.547.346-.852l.162-.427c.443-1.155.9-2.35.909-4.703C21.003 20.66 20.892 19.627 20.681 18.501zM34.847 22.007c-.104-.729-.211-1.484-.185-2.303.023-.742.105-1.442.184-2.119.062-.533.11-1.045.138-1.55-1.289.107-2.145.479-2.551 1.108.168-.057.358-.102.568-.129.892-.116 1.543.141 1.618.637.055.363-.253.705-.388.836-.277.269-.626.442-.981.488-.064.008-.129.012-.192.012-.353 0-.69-.121-.949-.3.112 1.973 1.567 4.612 2.283 5.907.153.277.271.498.369.688C35.154 24.163 35.009 23.143 34.847 22.007z"></path>
+              </svg> PostgreSQL / Db Solo / MongoDB</div>
+            </div>
+          </div>
+
+          <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow">
+            <h3 class="font-semibold mb-3">Tools & DevOps</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded bg-white/60 dark:bg-white/5 text-xs"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 30 30" class="inline" fill="currentColor">
+                  <path d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"></path>
+              </svg> Git</span>
+              <span class="px-3 py-1 rounded bg-white/60 dark:bg-white/5 text-xs"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 50 50" class="inline" fill="currentColor">
+              <path d="M 20 9 L 20 14 L 10 14 L 10 19 L 5 19 L 5 24 L 1.125 24 C 0.640625 24 0.242188 24.335938 0.15625 24.8125 C 0.148438 24.847656 0 25.683594 0 26.75 C 0 27.449219 0.0664063 28.210938 0.1875 28.96875 C 1.332031 28.695313 3.429688 28.285156 3.0625 26.9375 C 5.035156 29.222656 9.769531 28.53125 10.96875 27.40625 C 12.308594 29.347656 20.113281 28.605469 20.65625 27.09375 C 22.335938 29.0625 27.542969 29.0625 29.21875 27.09375 C 29.761719 28.605469 37.535156 29.347656 38.875 27.40625 C 39.300781 27.804688 40.1875 28.136719 41.21875 28.3125 C 41.566406 27.652344 41.886719 26.988281 42.1875 26.28125 C 48.539063 26.203125 49.910156 21.636719 49.96875 21.4375 C 50.078125 21.054688 49.929688 20.660156 49.625 20.40625 C 49.519531 20.316406 47.175781 18.414063 43.375 19.0625 C 42.308594 15.589844 39.5625 14.007813 39.4375 13.9375 C 39.078125 13.734375 38.632813 13.765625 38.3125 14.03125 C 38.210938 14.113281 35.847656 16.117188 36.21875 20.21875 C 36.3125 21.25 36.582031 22.160156 37 22.96875 C 36.179688 23.425781 34.769531 24 32.5 24 L 32 24 L 32 19 L 27 19 L 27 9 Z M 41.21875 28.3125 C 41.097656 28.546875 40.941406 28.773438 40.8125 29 L 49.84375 29 C 48.757813 28.726563 46.425781 28.359375 46.8125 26.9375 C 45.535156 28.414063 43.109375 28.632813 41.21875 28.3125 Z M 40.8125 29 L 0.1875 29 C 0.429688 30.46875 0.929688 32.007813 1.6875 33.5 C 7.117188 34.777344 12.816406 32.832031 12.875 32.8125 C 13.398438 32.628906 13.945313 32.917969 14.125 33.4375 C 14.308594 33.957031 14.050781 34.539063 13.53125 34.71875 C 13.339844 34.785156 9.90625 35.9375 5.6875 35.9375 C 4.851563 35.9375 3.972656 35.890625 3.09375 35.78125 C 5.71875 39.261719 10.167969 42 17 42 C 27.804688 42 36.113281 37.410156 40.8125 29 Z M 0.1875 29 C 0.183594 28.984375 0.191406 28.984375 0.1875 28.96875 C 0.121094 28.984375 0.0585938 28.984375 0 29 Z M 22 11 L 25 11 L 25 14 L 22 14 Z M 12 16 L 15 16 L 15 19 L 12 19 Z M 17 16 L 20 16 L 20 19 L 17 19 Z M 22 16 L 25 16 L 25 19 L 22 19 Z M 7 21 L 10 21 L 10 24 L 7 24 Z M 12 21 L 15 21 L 15 24 L 12 24 Z M 17 21 L 20 21 L 20 24 L 17 24 Z M 22 21 L 25 21 L 25 24 L 22 24 Z M 27 21 L 30 21 L 30 24 L 27 24 Z M 16 31 C 16.128906 31 16.261719 31.019531 16.375 31.0625 C 16.253906 31.132813 16.15625 31.253906 16.15625 31.40625 C 16.15625 31.632813 16.335938 31.84375 16.5625 31.84375 C 16.714844 31.84375 16.867188 31.75 16.9375 31.625 C 16.988281 31.742188 17 31.863281 17 32 C 17 32.550781 16.550781 33 16 33 C 15.449219 33 15 32.550781 15 32 C 15 31.449219 15.449219 31 16 31 Z"></path>
+              </svg> Docker</span>
+              <span class="px-3 py-1 rounded bg-white/60 dark:bg-white/5 text-xs">GitHub Actions</span>
+              <span class="px-3 py-1 rounded bg-white/60 dark:bg-white/5 text-xs">Render</span>
+              <span class="px-3 py-1 rounded bg-white/60 dark:bg-white/5 text-xs"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 48 48" class="inline">
+              <path fill="#05bdba" d="M13.894,36.994h-0.413l-2.063-2.063v-0.412l3.163-3.163h2.2l0.309,0.309v2.2L13.894,36.994z"></path><path fill="#05bdba" d="M11.419,13.516v-0.413l2.063-2.063h0.413l3.163,3.163v2.2l-0.275,0.275h-2.2L11.419,13.516z"></path><path fill="#014847" d="M29.672,30.291h-3.025l-0.241-0.241v-7.081c0-1.272-0.481-2.234-1.994-2.269	c-0.791-0.034-1.684,0-2.612,0.034l-0.138,0.137v9.144l-0.241,0.241h-3.025l-0.241-0.241V17.984l0.241-0.241h6.806	c2.647,0,4.778,2.131,4.778,4.778v7.528L29.672,30.291z"></path><path fill="#05bdba" d="M14.306,25.753H2.241L2,25.513v-3.025l0.241-0.241h12.066l0.241,0.241v3.025L14.306,25.753z"></path><path fill="#05bdba" d="M45.759,25.753H33.694l-0.241-0.241v-3.025l0.241-0.241h12.066L46,22.488v3.025L45.759,25.753z"></path><path fill="#05bdba" d="M22.247,13.963V4.888l0.275-0.241h3.025l0.241,0.241v9.041l-0.241,0.241h-3.025L22.247,13.963z"></path><path fill="#05bdba" d="M22.247,43.113v-9.041l0.241-0.241h3.025l0.241,0.241v9.041l-0.241,0.241h-3.025L22.247,43.113z"></path>
+              </svg> Netlify</span>
+            </div>
+          </div>
+
+          <div class="p-6 bg-white dark:bg-gray-900 rounded-xl shadow">
+            <h3 class="font-semibold mb-3">Other</h3>
+            <div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300">
+              <div>Spring MVC</div>
+              <div>Microservices</div>
+              <div>RESTful design</div>
+              <div>Postman</div>
+              <div>Swagger</div>
+              <div>Tailwind</div>
+              <div>Bootstrap</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="text-3xl font-bold mb-6">Projects</h2>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+          <!-- Project 1 -->
+          <article class="project-card group">
+            <img src="assets/ecommerce.png" alt="E-Commerce" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="p-4">
+              <h3 class="font-semibold">E-Commerce Application</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Fullstack e-commerce platform (Java + Spring Boot + MySQL + Thymeleaf). Payment via Razorpay/UPI.</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div class="text-xs text-gray-500">Tech: Java, Spring Boot, Thymeleaf, Spring Security, Razorpay, Swagger, Render</div>
+                <div class="flex gap-2">
+                  <a href="https://github.com/Lingesh-5/Final_project_2" class="text-xs underline">GitHub</a>
+                  <a href="https://final-project-2-w8nd.onrender.com/" class="text-xs underline">Live</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card group">
+            <img src="assets/hotel.png" alt="Hotel Management" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="p-4">
+              <h3 class="font-semibold">Hotel Booking System</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Hotel booking & management system using Java, Spring Boot, MySQL. Functionality similar to OYO and Booking.com</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div class="text-xs text-gray-500">Tech: Java, Spring Boot, JPA, Rest API, Thymeleaf, Spring Security, Render</div>
+                <div class="flex gap-2">
+                  <a href="https://github.com/Lingesh-5/finalproject_3" class="text-xs underline">GitHub</a>
+                  <a href="https://finalproject-3-by6p.onrender.com/" class="text-xs underline">Live</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 (Generic Java) -->
+          <article class="project-card group">
+            <img src="assets/realEstate.png" alt="Real Estate" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="p-4">
+              <h3 class="font-semibold">Real Estate Listing Platform</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Full-Stack Real estate platform(Java + Spring Boot REST APIs) to list, browse and manage properties for sale or rent.</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div class="text-xs text-gray-500">Tech: Java, Spring Boot, PostgreSQL, Spring Security, Rest API, Swagger, Hibernate Validator, Thymeleaf, Bootstrap</div>
+                <div class="flex gap-2">
+                  <a href="https://github.com/Lingesh-5/Final_project_1" class="text-xs underline">GitHub</a>
+                  <a href="https://final-project-1-i10j.onrender.com" class="text-xs underline">Live</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card group">
+            <img src="assets/calculator.png" alt="Calculator" class="w-full h-40 object-cover rounded-t-lg">
+            <div class="p-4">
+              <h3 class="font-semibold">Calculator</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">A calculator to perform arithmetic operations.</p>
+              <div class="mt-3 flex items-center justify-between">
+                <div class="text-xs text-gray-500">Tech: Html, CSS, Bootstrap, JavaScript, Netlify</div>
+                <div class="flex gap-2">
+                  <a href="https://github.com/Lingesh-5/Project/blob/master/calculator.js" class="text-xs underline">GitHub</a>
+                  <a href="https://shiny-stroopwafel-a6d3f9.netlify.app/calculator" class="text-xs underline">Live</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION -->
+    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800/40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="text-3xl font-bold mb-6">Experience & Education</h2>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Experience</h3>
+            <div class="space-y-4">
+              <div class="p-4 border rounded-lg bg-white dark:bg-gray-900">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h4 class="font-semibold">Junior Software Engineer — Sysarc Infomatix Pvt Ltd</h4>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">Nov 2021 — Sep 2023</div>
+                  </div>
+                </div>
+                <p class="mt-3 text-sm text-gray-600 dark:text-gray-300">Worked on backend services using Spring Boot, integration of Rest API and troubleshooting of existing API. Provided support for QA, UAT and PROD environments</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Education & Certifications</h3>
+            <div class="space-y-4">
+              <div class="p-4 border rounded-lg bg-white dark:bg-gray-900">
+                <h4 class="font-semibold">Diploma</h4>
+                <div class="text-sm text-gray-500 dark:text-gray-400">Jain University — 2024 - 2025</div>
+                <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Major: Yoga for Human Excellence</p><br />
+                <h4 class="font-semibold">Bachelor of Engineering</h4>
+                <div class="text-sm text-gray-500 dark:text-gray-400">Jeppiaar Institute Of Technology — 2017 - 2021</div>
+                <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Major: Computer Science and Engineering</p>
+                
+              </div>
+
+              <div class="p-4 border rounded-lg bg-white dark:bg-gray-900">
+                <h4 class="font-semibold">Certifications</h4>
+                <ul class="mt-2 text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                  <li>• Java Full-Stack Development(July 2025) - GUVI</li>
+                  <li>• GenAI for Developers(April 2025)</li>
+                  <li>• JavaScript(May 2025) - GUVI</li>
+                  <li>• Html & CSS(May 2025) - GUVI</li>
+                  <li>• Agile Fundamentals(April 2025) - GUVI</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <h2 class="text-3xl font-bold mb-6">Contact</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- <form id="contact-form" class="p-6 border rounded-lg bg-white dark:bg-gray-900 space-y-4">
+            <div>
+              <label class="text-sm">Name</label>
+              <input required class="w-full mt-1 p-3 border rounded-md bg-transparent" name="name">
+            </div>
+            <div>
+              <label class="text-sm">Email</label>
+              <input required type="email" class="w-full mt-1 p-3 border rounded-md bg-transparent" name="email">
+            </div>
+            <div>
+              <label class="text-sm">Message</label>
+              <textarea required rows="4" class="w-full mt-1 p-3 border rounded-md bg-transparent" name="message"></textarea>
+            </div>
+            <div class="flex items-center justify-between">
+              <button type="submit" class="px-5 py-3 rounded-md bg-brand text-white">Send Message</button>
+              <div class="text-sm text-gray-500">I reply within 2-3 business days</div>
+            </div>
+          </form> -->
+          <img src="assets/contact.png" alt="contact" class="w-full object-cover">
+
+          <div class="p-6 space-y-4">
+            <div>
+              <h4 class="font-semibold">Get in touch</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Email: <a href="mailto:lingeshaj1999@gmail.com" class="underline">lingeshaj1999@gmail.com</a></p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold">Social</h4>
+              <div class="flex gap-3 mt-2">
+                <a href="https://www.linkedin.com/in/lingesh-aj-36767321a" class="social-icon">LinkedIn</a>
+                <a href="https://github.com/Lingesh-5" class="social-icon">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t py-6 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+      <div class="text-sm">© <span id="year"></span> Lingesh AJ • Fullstack Java Developer</div>
+      <div class="flex gap-3">
+        <a href="https://www.linkedin.com/in/lingesh-aj-36767321a" class="social-icon">LinkedIn</a>
+        <a href="https://github.com/Lingesh-5" class="social-icon">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
